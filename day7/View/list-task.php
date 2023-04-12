@@ -1,3 +1,15 @@
+<?php
+$connnectMysql = mysqli_connect('localhost','root','','demophp');
+$sql = "Select * From list_task";
+$result = mysqli_query($connnectMysql,$sql);
+function printInfo($text){
+    if ($text != null) {
+        echo $text;
+    } else {
+        echo "NULL";
+    }
+}
+?>
 
 <!DOCTYPE html>
 <html>
@@ -35,17 +47,6 @@
         <th>UpdateAt</th>
     </tr>
     <?php
-    $connnectMysql = mysqli_connect('localhost','root','','demophp');
-    $sql = "Select * From list_task";
-    $result = mysqli_query($connnectMysql,$sql);
-    function printInfo($text){
-        if ($text) {
-            echo $text;
-        } else {
-            echo "NULL";
-        }
-
-    }
     while ($row = mysqli_fetch_assoc($result)){
         ?>
         <tr>
